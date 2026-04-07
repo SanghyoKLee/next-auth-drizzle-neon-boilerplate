@@ -4,11 +4,12 @@ import React from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { ModeToggle } from "@/components/ModeToggle";
 import { signOut } from "next-auth/react";
 
 const Header = () => {
   return (
-    <header className="h-15 w-full flex-row items-center border-b border-gray-200 sticky top-0 z-1 bg-zinc-50">
+    <header className="h-15 w-full flex-row items-center border-b border-gray-200 sticky top-0 z-1 ">
       {/* Content */}
       <div className="flex mx-80 w-auto h-full ">
         {/* Left Section */}
@@ -30,22 +31,23 @@ const Header = () => {
           </div>
 
           {/* Navigation Buttons */}
-          <Link href={"/dashboard"} className="hover:text-black">
+          <Link href={"/dashboard"} className="">
             My Decks
           </Link>
-          <Link href={"/create"} className="hover:text-black">
+          <Link href={"/create"} className="">
             Create
           </Link>
         </div>
 
         {/* Right Section */}
         <div className="flex items-center ml-auto gap-6">
-          <Link href={"/account"} className="hover:text-black">
+          <ModeToggle />
+          <Link href={"/account"} className="">
             Account
           </Link>
           <button
             onClick={() => signOut({ callbackUrl: "/signin" })}
-            className="hover:text-black"
+            className=""
           >
             Sign out
           </button>
